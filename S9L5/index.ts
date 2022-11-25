@@ -162,6 +162,7 @@ calcBtn?.addEventListener('click', () => {
     credito.value = "";
     minChiama.value = "";
     numChiam.value = "";
+    ricarica.value = "";
 
 
 });
@@ -193,6 +194,7 @@ calc1Btn?.addEventListener('click', () => {
     credito1.value = "";
     minChiama1.value = "";
     numChiam1.value = "";
+    ricarica1.value = ""
 
 });
 /*----------THIRD USER----------*/
@@ -223,6 +225,7 @@ calc2Btn?.addEventListener('click', () => {
     credito2.value = "";
     minChiama2.value = "";
     numChiam2.value = "";
+    ricarica2.value = "";
 
 
 
