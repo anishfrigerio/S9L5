@@ -1,5 +1,4 @@
 "use strict";
-var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
 let chiamateAzzerate = 0;
 let totalCallCost = 0;
 class firstUser {
@@ -13,6 +12,7 @@ class firstUser {
     chiamata(min) {
         for (let i = 0; i < min; i++) {
             this.credito = this.credito - 0.20;
+            totalCallCost += 0.20;
         }
     }
     numero404() {
@@ -106,63 +106,85 @@ console.log('Chiamate fatte:', Tibor.getNumeroChiamate());
 console.log('Chiamate azzerate:', chiamateAzzerate);
 console.log('Costo totale chiamata:', totalCallCost.toFixed(2), '$');
 console.log('------------------------------------------');
+/*---------SECONDA PARTE OPZIONALE----------*/
 var calcBtn = document.getElementById('calc');
 var calc1Btn = document.getElementById('calc1');
 var calc2Btn = document.getElementById('calc2');
 /*------FIRST USER--------*/
-let credito = (_a = document.getElementById('credito')) === null || _a === void 0 ? void 0 : _a.inputMode;
+let credito = document.getElementById('credito');
 let numAzzera = document.getElementById('azzChiama');
-let minChiama = (_b = document.getElementById('minChiam')) === null || _b === void 0 ? void 0 : _b.inputMode;
-let numChiam = (_c = document.getElementById('numeroChiamate')) === null || _c === void 0 ? void 0 : _c.inputMode;
-let table = (_d = document.getElementById('result')) === null || _d === void 0 ? void 0 : _d.innerHTML;
+let minChiama = document.getElementById('minChiam');
+let numChiam = document.getElementById('numeroChiamate');
+let ricarica = document.getElementById('ricarica');
+let table = document.getElementById('result');
+totalCallCost = 0;
+chiamateAzzerate = 0;
 calcBtn === null || calcBtn === void 0 ? void 0 : calcBtn.addEventListener('click', () => {
-    let x = new firstUser(Number(credito), Number(numChiam));
-    x.chiamata(Number(minChiama));
-    if (numAzzera === null || numAzzera === void 0 ? void 0 : numAzzera.ariaChecked) {
+    let x = new firstUser(Number(credito.value), Number(numChiam.value));
+    x.chiamata(Number(minChiama.value));
+    x.ricarica(Number(ricarica.value));
+    if (numAzzera === null || numAzzera === void 0 ? void 0 : numAzzera.checked) {
         x.azzeraChiamate();
     }
-    table = `<div> 
-                Credito: ${x.numero404()}
-                Costo totale chiamata: ${totalCallCost.toFixed(2)}
-                Chiamate azzerate: ${chiamateAzzerate}
-                Chiamate fatte: ${x.getNumeroChiamate()}
-            <div>`;
+    table.innerHTML = `<div> 
+    Credito: ${x.credito.toFixed(2)}$<br>
+    Costo totale chiamata: ${totalCallCost.toFixed(2)}$<br>
+    Chiamate azzerate: ${chiamateAzzerate}<br>
+    Chiamate fatte: ${x.getNumeroChiamate()}<br>
+<div>`;
+    credito.value = "";
+    minChiama.value = "";
+    numChiam.value = "";
 });
 /*---------SECOND USER-------*/
-let credito1 = (_e = document.getElementById('credito1')) === null || _e === void 0 ? void 0 : _e.inputMode;
+let credito1 = document.getElementById('credito1');
 let numAzzera1 = document.getElementById('azzChiama1');
-let minChiama1 = (_f = document.getElementById('minChiam1')) === null || _f === void 0 ? void 0 : _f.inputMode;
-let numChiam1 = (_g = document.getElementById('numeroChiamate1')) === null || _g === void 0 ? void 0 : _g.inputMode;
-let table1 = (_h = document.getElementById('result1')) === null || _h === void 0 ? void 0 : _h.innerHTML;
+let minChiama1 = document.getElementById('minChiam1');
+let numChiam1 = document.getElementById('numeroChiamate1');
+let ricarica1 = document.getElementById('ricarica1');
+let table1 = document.getElementById('result1');
+totalCallCost = 0;
+chiamateAzzerate = 0;
 calc1Btn === null || calc1Btn === void 0 ? void 0 : calc1Btn.addEventListener('click', () => {
-    let y = new secondUser(Number(credito1), Number(numChiam1));
-    y.chiamata(Number(minChiama1));
-    if (numAzzera1 === null || numAzzera1 === void 0 ? void 0 : numAzzera1.ariaChecked) {
+    let y = new secondUser(Number(credito1.value), Number(numChiam1.value));
+    y.chiamata(Number(minChiama1.value));
+    y.ricarica(Number(ricarica1.value));
+    if (numAzzera1 === null || numAzzera1 === void 0 ? void 0 : numAzzera1.checked) {
         y.azzeraChiamate();
     }
-    table1 = `<div> 
-                Credito: ${y.numero404()}
-                Costo totale chiamata: ${totalCallCost.toFixed(2)}
-                Chiamate azzerate: ${chiamateAzzerate}
-                Chiamate fatte: ${y.getNumeroChiamate()}
+    table1.innerHTML = `<div> 
+                Credito: ${y.credito.toFixed(2)}$<br>
+                Costo totale chiamata: ${totalCallCost.toFixed(2)}$<br>
+                Chiamate azzerate: ${chiamateAzzerate}<br>
+                Chiamate fatte: ${y.getNumeroChiamate()}<br>
             <div>`;
+    credito1.value = "";
+    minChiama1.value = "";
+    numChiam1.value = "";
 });
 /*----------THIRD USER----------*/
-let credito2 = (_j = document.getElementById('credito2')) === null || _j === void 0 ? void 0 : _j.inputMode;
+let credito2 = document.getElementById('credito2');
 let numAzzera2 = document.getElementById('azzChiama2');
-let minChiama2 = (_k = document.getElementById('minChiam2')) === null || _k === void 0 ? void 0 : _k.inputMode;
-let numChiam2 = (_l = document.getElementById('numeroChiamate2')) === null || _l === void 0 ? void 0 : _l.inputMode;
-let table2 = (_m = document.getElementById('result2')) === null || _m === void 0 ? void 0 : _m.innerHTML;
+let minChiama2 = document.getElementById('minChiam2');
+let numChiam2 = document.getElementById('numeroChiamate2');
+let ricarica2 = document.getElementById('ricarica2');
+let table2 = document.getElementById('result2');
+totalCallCost = 0;
+chiamateAzzerate = 0;
 calc2Btn === null || calc2Btn === void 0 ? void 0 : calc2Btn.addEventListener('click', () => {
-    let z = new thirdUser(Number(credito2), Number(numChiam2));
-    z.chiamata(Number(minChiama2));
-    if (numAzzera2 === null || numAzzera2 === void 0 ? void 0 : numAzzera2.ariaChecked) {
+    let z = new thirdUser(Number(credito2.value), Number(numChiam2.value));
+    z.chiamata(Number(minChiama2.value));
+    z.ricarica(Number(ricarica2.value));
+    if (numAzzera2 === null || numAzzera2 === void 0 ? void 0 : numAzzera2.checked) {
         z.azzeraChiamate();
     }
-    table2 = `<div> 
-                Credito: ${z.numero404()}
-                Costo totale chiamata: ${totalCallCost.toFixed(2)}
-                Chiamate azzerate: ${chiamateAzzerate}
-                Chiamate fatte: ${z.getNumeroChiamate()}
+    table2.innerHTML = `<div> 
+                Credito: ${z.credito.toFixed(2)}$<br>
+                Costo totale chiamata: ${totalCallCost.toFixed(2)}$<br>
+                Chiamate azzerate: ${chiamateAzzerate}<br>
+                Chiamate fatte: ${z.getNumeroChiamate()}<br>
             <div>`;
+    credito2.value = "";
+    minChiama2.value = "";
+    numChiam2.value = "";
 });
